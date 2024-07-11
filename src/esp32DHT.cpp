@@ -107,7 +107,7 @@ void DHT::_readSensor(DHT* instance) {
 
     // give start signal to sensor
     digitalWrite(instance->_pin, LOW);
-    vTaskDelay(18);
+    vTaskDelay(18 / portTICK_PERIOD_MS);
     pinMode(instance->_pin, INPUT);
     rmt_rx_start(instance->_channel, 1);
     // rmt_set_pin is used untill platformio updates to latest Arduino core.
